@@ -29,7 +29,7 @@ function CardAnimal() {
           <Text>R$ 200.00</Text>
         </CardInformation>
         <ContainerButton>
-          <ButtonText>Adotar</ButtonText>
+          <ButtonText>Comprar</ButtonText>
           <MaterialIcons name="pets" size={24} color="black" />
         </ContainerButton>
           </Card>

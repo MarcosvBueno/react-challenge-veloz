@@ -21,6 +21,9 @@ export const Card = styled.View`
   padding: 0px 0px;
 
   elevation: 5;
+
+  shadow-color: #000;
+  shadow-opacity: 0.3;
 `;
 
 export const CardInformation = styled.View`
