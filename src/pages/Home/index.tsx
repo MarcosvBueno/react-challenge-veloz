@@ -1,13 +1,23 @@
-import { Text } from "react-native";
+import { Text, Image } from "react-native";
+import { SafeAreaView } from "react-native";
+import { ImageSourcePropType } from "react-native";
+import { Container } from "./style";
+import CardAnimal from "../../components/CardAnimal";
+import Filters from "../../components/Filters";
+import PosterAnimal from "../../components/PosterAnimal";
+
+const poster: ImageSourcePropType = require("../../../assets/posterCat.png");
 
 function HomePage() {
-    return (
-    <>
-            <Text>Home Page</Text>
-            
-
-    </>
-    );
+  return (
+    <Container>
+      <SafeAreaView>
+        <PosterAnimal />
+        <Filters />
+        <CardAnimal />
+      </SafeAreaView>
+    </Container>
+  );
 }
 
 export default HomePage;
