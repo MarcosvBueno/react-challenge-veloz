@@ -1,6 +1,8 @@
+import { Platform } from "react-native";
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+
+export const Container = styled.SafeAreaView`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -18,7 +20,7 @@ export const ContainerImage = styled.View`
   background-color: #ff8b48;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: ${Platform.OS === 'android' ? 40 : 0}px;
   padding: 10px 10px;
   max-width: 100%;
   align-self: center;

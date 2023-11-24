@@ -1,7 +1,8 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { Image, Text, View, TouchableOpacity } from "react-native";
+import { Image, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import {
   Container,
   ContainerImage,
@@ -11,9 +12,13 @@ import {
   ContainerButton,
   ButtonText,
 } from "./style";
+
 const dogImage = require("../../../assets/welcomeDog.png");
 
 function WelcomePage() {
+
+  const navigate = useNavigation();
+
   return (
     <Container>
       <StatusBar style="dark" />
@@ -27,12 +32,12 @@ function WelcomePage() {
         <Message>
           Trazer um animal de estimação para casa é uma mudança de vida{". "}
           <Text style={{ fontWeight: "bold", color: "#ff8b48" }}>
-            experiência
+            Experiência
           </Text>{" "}
           que só espalha alegria.
         </Message>
 
-        <ContainerButton>
+        <ContainerButton onPress={() => navigate.navigate("HomePage" as never)}>
           <ButtonText>Começar</ButtonText>
         </ContainerButton>
       </ContainerMessage>
