@@ -33,7 +33,37 @@ function CardAnimal() {
           <MaterialIcons name="pets" size={24} color="black" />
         </ContainerButton>
           </Card>
-          
+          <Card>
+        <IconContainer>
+          <IconHeart name="heart-o" />
+        </IconContainer>
+        <ContainerImageAnimal>
+          <Image source={dogImage} style={{ width: 150, height: 180 }} />
+        </ContainerImageAnimal>
+        <CardInformation>
+          <Text>Type : Dog</Text>
+          <Text>R$ 200.00</Text>
+        </CardInformation>
+        <ContainerButton>
+          <ButtonText>Comprar</ButtonText>
+          <MaterialIcons name="pets" size={24} color="black" />
+        </ContainerButton>
+          </Card><Card>
+        <IconContainer>
+          <IconHeart name="heart-o" />
+        </IconContainer>
+        <ContainerImageAnimal>
+          <Image source={dogImage} style={{ width: 150, height: 180 }} />
+        </ContainerImageAnimal>
+        <CardInformation>
+          <Text>Type : Dog</Text>
+          <Text>R$ 200.00</Text>
+        </CardInformation>
+        <ContainerButton>
+          <ButtonText>Comprar</ButtonText>
+          <MaterialIcons name="pets" size={24} color="black" />
+        </ContainerButton>
+          </Card>
     </Container>
   );
 }
