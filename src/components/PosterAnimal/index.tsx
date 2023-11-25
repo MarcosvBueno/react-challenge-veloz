@@ -13,7 +13,7 @@ function PosterAnimal() {
   return (
     <Container>
       <View>
-        <TextPoster>40% off na Compra de Gatos!!!</TextPoster>
+        <TextPoster>40% off on all cats adoption!!!</TextPoster>
         <ContainerButton >
           <TextButton>Comprar</TextButton>
         </ContainerButton>

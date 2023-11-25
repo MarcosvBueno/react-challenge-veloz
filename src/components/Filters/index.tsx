@@ -1,31 +1,50 @@
-import { View, TouchableOpacity, Text } from "react-native";
-import { FontAwesome, AntDesign,MaterialIcons } from "@expo/vector-icons";
-import { Container, ContainerFilter, FiltersIcon,FiltersText,ContainerFilterModal  } from "./style";
-function Filters() {
+import React from "react";
+import { View } from "react-native";
+import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import {
+  Container,
+  ContainerFilter,
+  FiltersIcon,
+  FiltersText,
+  ContainerFilterModal,
+} from "./style";
+import { petProps } from "../../types";
+
+interface FiltersProps {
+  applySort: (sortFunction: (prevData: petProps[]) => petProps[]) => void;
+}
+
+function Filters({ applySort }: FiltersProps) {
+  const sortById = () => {
+    applySort((prevData) => [...prevData].sort((a, b) => Number(a.id) - Number(b.id)));
+  };
+
+  const sortByType = () => {
+    applySort((prevData) => [...prevData].sort((a, b) => a.type.localeCompare(b.type)));
+  };
+
+  const sortByPrice = () => {
+    applySort((prevData) => [...prevData].sort((a, b) => a.price - b.price));
+  };
+
   return (
     <Container>
-      <View>
-        <FiltersIcon>
-          <AntDesign name="star" size={24} color="#262a4c" />
-          <FiltersText >Todos</FiltersText >
-        </FiltersIcon>
-      </View>
       <ContainerFilter>
         <View>
-          <FiltersText >Filtros :</FiltersText >
+          <FiltersText>Filtros :</FiltersText>
         </View>
         <ContainerFilterModal>
-          <FiltersIcon>
-          <AntDesign name="bars" size={24} color="#262a4c" />
-            <FiltersText >id</FiltersText >
+          <FiltersIcon onPress={sortById}>
+            <AntDesign name="bars" size={24} color="#262a4c" />
+            <FiltersText>Id</FiltersText>
           </FiltersIcon>
-          <FiltersIcon>
-          <MaterialIcons name="pets" size={24} color="#262a4c" />
-            <FiltersText >Tipo</FiltersText >
+          <FiltersIcon onPress={sortByType}>
+            <MaterialIcons name="pets" size={24} color="#262a4c" />
+            <FiltersText>Type</FiltersText>
           </FiltersIcon>
-          <FiltersIcon>
-          <MaterialIcons name="attach-money" size={24} color="#262a4c" />
-            <FiltersText >Preço</FiltersText >
+          <FiltersIcon onPress={sortByPrice}>
+            <MaterialIcons name="attach-money" size={24} color="#262a4c" />
+            <FiltersText>Price</FiltersText>
           </FiltersIcon>
         </ContainerFilterModal>
       </ContainerFilter>
