@@ -31,6 +31,7 @@ export const FiltersIcon = styled.TouchableOpacity`
   elevation: 5;
   shadow-color: #000;
   shadow-opacity: 0.3;
+
 `;
 
 export const FiltersText = styled.Text`

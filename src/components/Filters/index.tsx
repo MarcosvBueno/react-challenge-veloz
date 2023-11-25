@@ -14,9 +14,12 @@ interface FiltersProps {
   applySort: (sortFunction: (prevData: petProps[]) => petProps[]) => void;
 }
 
+
 function Filters({ applySort }: FiltersProps) {
+
   const sortById = () => {
     applySort((prevData) => [...prevData].sort((a, b) => Number(a.id) - Number(b.id)));
+    
   };
 
   const sortByType = () => {

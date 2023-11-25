@@ -1,4 +1,4 @@
-import { Text, Image} from "react-native";
+import {Image} from "react-native";
 import {
   Container,
   Card,
@@ -7,19 +7,27 @@ import {
   ButtonText,
   ContainerImageAnimal,
     IconHeart,
-    IconContainer
+  IconContainer,
+  TextAnimal 
 } from "./style";
 import { ImageSourcePropType } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { petProps } from "../../types";
 
-interface DataProps {
-  id: string;
-  price: number;
-  type: string;
-}
-
-function CardAnimal({ id, price, type}: DataProps) {
+function CardAnimal({ id, price, type}: petProps) {
   const dogImage: ImageSourcePropType = require("../../../assets/dog.png");
+  const catImage: ImageSourcePropType = require("../../../assets/gatoCard.png");
+  const fishImage: ImageSourcePropType = require("../../../assets/peixeCard.png");
+
+  const SelectImage = () => {
+    if (type === "dog") {
+      return dogImage;
+    } else if (type === "cat") {
+      return catImage;
+    } else {
+      return fishImage;
+    }
+  };
 
   const priceFormatted = price.toLocaleString("pt-br", {
     style: "currency",
@@ -28,22 +36,22 @@ function CardAnimal({ id, price, type}: DataProps) {
 
   return (
     <Container>
-      <Card>
+      <Card >
         <IconContainer>
           <IconHeart name="heart-o" />
         </IconContainer>
-        <ContainerImageAnimal>
-          <Image source={dogImage} style={{ width: 150, height: 180 }} />
+        <ContainerImageAnimal type={ type}>
+          <Image source={SelectImage()} style={{ width: 145, height: 175 }} />
         </ContainerImageAnimal>
         <CardInformation>
-          <Text>Type : {type}</Text>
-          <Text>{priceFormatted}</Text>
+          <TextAnimal >Type : {type}</TextAnimal>
+          <TextAnimal  >{priceFormatted}</TextAnimal>
         </CardInformation>
         <ContainerButton>
           <ButtonText>Buy</ButtonText>
           <MaterialIcons name="pets" size={24} color="black" />
         </ContainerButton>
-          </Card>
+      </Card>
     </Container>
   );
 }
