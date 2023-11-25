@@ -19,11 +19,13 @@ export const Card = styled.View`
   justify-content: center;
   align-items: center;
   padding: 0px 0px;
-
+  margin-bottom: 20px;
   elevation: 5;
 
   shadow-color: #000;
   shadow-opacity: 0.3;
+
+
 `;
 
 export const CardInformation = styled.View`
@@ -59,9 +61,14 @@ export const ContainerImageAnimal = styled.View`
   align-items: center;
 
   width: 100%;
-  height: 200px;
+  height: 220px;
   border-radius: 40px;
-  background-color: #e3eadf;
+  background-color: ${(props: { type: string; }) =>
+    props.type === "dog"
+      ? "#e3eadf" 
+      : props.type === "cat"
+        ? "#add8e6" 
+    : "#f9e3d2"}; 
 `;
 
 export const IconHeart = styled(Icon)`
@@ -80,4 +87,10 @@ export const IconContainer = styled.TouchableOpacity`
     top: 10px;
     right: 10px;
 
+`;
+
+export const TextAnimal = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
 `;
