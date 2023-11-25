@@ -1,20 +1,33 @@
-import { Text, Image } from "react-native";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
-import { ImageSourcePropType } from "react-native";
 import { Container } from "./style";
 import CardAnimal from "../../components/CardAnimal";
 import Filters from "../../components/Filters";
 import PosterAnimal from "../../components/PosterAnimal";
-
-const poster: ImageSourcePropType = require("../../../assets/posterCat.png");
+import { FetchApi } from "../../service";
+import { petProps } from "../../types";
 
 function HomePage() {
+  const [data, setData] = useState<petProps[]>([]);
+
+  useEffect(() => {
+    FetchApi().then((response) => {
+      setData(response);
+    });
+  }, []);
+
+  const applySort = (sortFunction: (prevData: petProps[]) => petProps[]) => {
+    setData((prevData) => sortFunction(prevData));
+  };
+
   return (
     <Container>
       <SafeAreaView>
         <PosterAnimal />
-        <Filters />
-        <CardAnimal />
+        <Filters applySort={applySort} />
+        {data.map((item: petProps) => (
+          <CardAnimal key={item.id} {...item} />
+        ))}
       </SafeAreaView>
     </Container>
   );

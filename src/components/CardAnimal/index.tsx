@@ -12,8 +12,19 @@ import {
 import { ImageSourcePropType } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
-function CardAnimal() {
+interface DataProps {
+  id: string;
+  price: number;
+  type: string;
+}
+
+function CardAnimal({ id, price, type}: DataProps) {
   const dogImage: ImageSourcePropType = require("../../../assets/dog.png");
+
+  const priceFormatted = price.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
 
   return (
     <Container>
@@ -25,42 +36,11 @@ function CardAnimal() {
           <Image source={dogImage} style={{ width: 150, height: 180 }} />
         </ContainerImageAnimal>
         <CardInformation>
-          <Text>Type : Dog</Text>
-          <Text>R$ 200.00</Text>
+          <Text>Type : {type}</Text>
+          <Text>{priceFormatted}</Text>
         </CardInformation>
         <ContainerButton>
-          <ButtonText>Comprar</ButtonText>
-          <MaterialIcons name="pets" size={24} color="black" />
-        </ContainerButton>
-          </Card>
-          <Card>
-        <IconContainer>
-          <IconHeart name="heart-o" />
-        </IconContainer>
-        <ContainerImageAnimal>
-          <Image source={dogImage} style={{ width: 150, height: 180 }} />
-        </ContainerImageAnimal>
-        <CardInformation>
-          <Text>Type : Dog</Text>
-          <Text>R$ 200.00</Text>
-        </CardInformation>
-        <ContainerButton>
-          <ButtonText>Comprar</ButtonText>
-          <MaterialIcons name="pets" size={24} color="black" />
-        </ContainerButton>
-          </Card><Card>
-        <IconContainer>
-          <IconHeart name="heart-o" />
-        </IconContainer>
-        <ContainerImageAnimal>
-          <Image source={dogImage} style={{ width: 150, height: 180 }} />
-        </ContainerImageAnimal>
-        <CardInformation>
-          <Text>Type : Dog</Text>
-          <Text>R$ 200.00</Text>
-        </CardInformation>
-        <ContainerButton>
-          <ButtonText>Comprar</ButtonText>
+          <ButtonText>Buy</ButtonText>
           <MaterialIcons name="pets" size={24} color="black" />
         </ContainerButton>
           </Card>
