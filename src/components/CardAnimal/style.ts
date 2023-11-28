@@ -1,14 +1,15 @@
 import styled from "styled-components/native";
 import Icon from '@expo/vector-icons/FontAwesome';
+import { Platform } from "react-native";
 
 
-
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
-  margin: 5px 0px;
+  margin: 10px 0px;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin-bottom: ${Platform.OS === "android" ? 30 : 0}px;
 `;
 
 export const Card = styled.View`
@@ -24,6 +25,7 @@ export const Card = styled.View`
 
   shadow-color: #000;
   shadow-opacity: 0.3;
+  shadow-offset: 2px 5px;
 
 
 `;

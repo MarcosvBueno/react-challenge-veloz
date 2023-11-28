@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
-import { Container } from "./style";
+import { ContainerHome,Container } from "./style";
 import CardAnimal from "../../components/CardAnimal";
 import Filters from "../../components/Filters";
 import PosterAnimal from "../../components/PosterAnimal";
@@ -22,13 +22,13 @@ function HomePage() {
 
   return (
     <Container>
-      <SafeAreaView>
+      <ContainerHome>
         <PosterAnimal />
-        <Filters applySort={applySort} />
+        <Filters applySort={applySort} initialActiveFilter={"id"} />
         {data.map((item: petProps) => (
           <CardAnimal key={item.id} {...item} />
         ))}
-      </SafeAreaView>
+      </ContainerHome>
     </Container>
   );
 }

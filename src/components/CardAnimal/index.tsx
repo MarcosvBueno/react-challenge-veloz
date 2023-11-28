@@ -14,7 +14,7 @@ import { ImageSourcePropType } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { petProps } from "../../types";
 
-function CardAnimal({ id, price, type}: petProps) {
+function CardAnimal({ id, price, type }: petProps) {
   const dogImage: ImageSourcePropType = require("../../../assets/dog.png");
   const catImage: ImageSourcePropType = require("../../../assets/gatoCard.png");
   const fishImage: ImageSourcePropType = require("../../../assets/peixeCard.png");
@@ -29,23 +29,23 @@ function CardAnimal({ id, price, type}: petProps) {
     }
   };
 
-  const priceFormatted = price.toLocaleString("pt-br", {
+  const priceFormatted = price.toLocaleString("en", {
     style: "currency",
-    currency: "BRL",
+    currency: "USD",
   });
 
   return (
     <Container>
-      <Card >
+      <Card>
         <IconContainer>
           <IconHeart name="heart-o" />
         </IconContainer>
-        <ContainerImageAnimal type={ type}>
+        <ContainerImageAnimal type={type}>
           <Image source={SelectImage()} style={{ width: 145, height: 175 }} />
         </ContainerImageAnimal>
         <CardInformation>
-          <TextAnimal >Type : {type}</TextAnimal>
-          <TextAnimal  >{priceFormatted}</TextAnimal>
+          <TextAnimal>Type : {type}</TextAnimal>
+          <TextAnimal>{priceFormatted}</TextAnimal>
         </CardInformation>
         <ContainerButton>
           <ButtonText>Buy</ButtonText>

@@ -8,6 +8,6 @@ export const FetchApi = async () => {
     return response.data;
   } catch (Error: any) {
     console.error("Erro na chamada da API:", Error.message);
-    throw Error; // Lança o erro para que o chamador possa tratá-lo, se necessário.
+    throw Error; 
   }
 };
