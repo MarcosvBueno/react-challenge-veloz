@@ -15,7 +15,7 @@ function PosterAnimal() {
       <View>
         <TextPoster>40% off on all cats adoption!!!</TextPoster>
         <ContainerButton>
-          <TextButton>Comprar</TextButton>
+          <TextButton>Buy</TextButton>
         </ContainerButton>
       </View>
       <View>

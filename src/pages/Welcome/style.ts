@@ -7,7 +7,7 @@ export const Container = styled.SafeAreaView`
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  margin: 5px 0px;
+  padding-top: ${Platform.OS === 'android' ? 40 : 0}px;
 `;
 
 export const Title = styled.Text`
@@ -20,7 +20,6 @@ export const ContainerImage = styled.View`
   background-color: #ff8b48;
   justify-content: center;
   align-items: center;
-  margin-top: ${Platform.OS === 'android' ? 40 : 0}px;
   padding: 10px 10px;
   max-width: 100%;
   align-self: center;
@@ -42,9 +41,10 @@ export const ContainerMessage = styled.View`
 `;
 
 export const Message = styled.Text`
-  font-size: 16px;
+  font-size: 17px;
   color: #000;
   text-align: center;
+  font-weight: 500;
 `;
 
 export const ContainerButton = styled.TouchableOpacity`
@@ -55,6 +55,10 @@ export const ContainerButton = styled.TouchableOpacity`
   align-self: center;
   justify-content: flex-end;
   margin-top: 100px;
+  elevation: 5;
+  shadow-color: #000;
+  shadow-opacity: 0.3;
+  shadow-offset: 2px 5px;
 `;
 
 export const ButtonText = styled.Text`
@@ -63,3 +67,4 @@ export const ButtonText = styled.Text`
   text-align: center;
   font-weight: bold;
 `;
+

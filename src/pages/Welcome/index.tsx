@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { Image, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { ImageSourcePropType } from "react-native";
 import {
   Container,
   ContainerImage,
@@ -13,7 +14,7 @@ import {
   ButtonText,
 } from "./style";
 
-const dogImage = require("../../../assets/welcomeDog.png");
+const dogImage: ImageSourcePropType = require("../../../assets/welcomeDog.png");
 
 function WelcomePage() {
 
@@ -28,17 +29,17 @@ function WelcomePage() {
 
       <ContainerMessage>
         <MaterialIcons name="pets" size={30} color="black" />
-        <Title>Seja bem vindo ao PetCare</Title>
+        <Title>Welcome to PetCare.</Title>
         <Message>
-          Trazer um animal de estimação para casa é uma mudança de vida{". "}
+        Bringing a pet into your home is a life-changing{". "}
           <Text style={{ fontWeight: "bold", color: "#ff8b48" }}>
-            Experiência
+          Experience 
           </Text>{" "}
-          que só espalha alegria.
+          that only spreads joy.
         </Message>
 
         <ContainerButton onPress={() => navigate.navigate("HomePage" as never)}>
-          <ButtonText>Começar</ButtonText>
+          <ButtonText>Get Started</ButtonText>
         </ContainerButton>
       </ContainerMessage>
     </Container>

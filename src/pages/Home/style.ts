@@ -2,11 +2,16 @@ import styled from "styled-components/native";
 import { Platform } from "react-native";
 
 
-export const Container = styled.ScrollView`
+export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: #fff;
-  padding: 5px 5px;
-  margin-top: ${Platform.OS === "android" ? 40 : 0}px;
+
 `;
 
+export const ContainerHome = styled.ScrollView`
+  background-color: #fff;
+  padding: 5px 10px;
+
+  padding-top: ${Platform.OS === "android" ? 40 : 10}px;
+;`
 

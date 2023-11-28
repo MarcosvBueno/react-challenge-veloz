@@ -31,13 +31,14 @@ export const FiltersIcon = styled.TouchableOpacity`
   elevation: 5;
   shadow-color: #000;
   shadow-opacity: 0.3;
+  shadow-offset: 2px 5px;
 
 `;
 
 export const FiltersText = styled.Text`
   font-size: 14px;
   font-weight: bold;
-  color: #262a4c;
+  color: #000;
 `;
 
 export const ContainerFilterModal = styled.View`

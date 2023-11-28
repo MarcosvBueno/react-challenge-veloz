@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
   background-color: #f4f6f6;
   justify-content: center;
@@ -12,12 +12,12 @@ export const Container = styled.SafeAreaView`
   border: 2px solid #f0f0f0;
   margin-bottom: 30px;
   height: 140px;
+  
 
   elevation: 8;
   shadow-color: #000;
   shadow-opacity: 0.3;
-
-  
+  shadow-offset: 2px 5px;
 `;
 
 export const ImagePoster = styled.Image`
